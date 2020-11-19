@@ -1,7 +1,4 @@
-export interface Context<T> {
-  (): T;
-  set(fn: (v: T) => T): void;
-}
+import { Context } from './types';
 
 let tout: NodeJS.Timeout = null;
 const scheduleUpdates = () => tout = tout ?? setTimeout(updateContexts, 0);
