@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ESNext"],
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "module": "UMD",
+    "moduleResolution": "Node",
+  },
+  "exclude": ["node_modules"]
+}

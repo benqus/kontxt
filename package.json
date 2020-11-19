@@ -1,0 +1,35 @@
+{
+  "name": "kontxt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "parcel:watch": "parcel watch --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --log-level 4",
+    "parcel": "parcel build --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --detailed-report 10 --log-level 4",
+    "build": "npm t && npm run parcel",
+    "test": "mocha -r ts-node/register ./lib/test/**/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benqus/kontxt.git"
+  },
+  "keywords": [],
+  "author": "Bence Kormos <kormos.bence@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benqus/kontxt/issues"
+  },
+  "homepage": "https://github.com/benqus/kontxt#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^14.14.9",
+    "amd-loader": "0.0.8",
+    "chai": "^4.2.0",
+    "expect": "^26.6.2",
+    "mocha": "^8.2.1",
+    "parcel": "^1.12.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}
