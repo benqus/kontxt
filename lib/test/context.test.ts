@@ -12,7 +12,6 @@ describe('context', () => {
     const value = 'hakuna matata';
     const v = context<string>(value);
     expect(v).to.be.a('function');
-    expect(v.set).to.be.a('function');
     expect(v()).to.eql(value);
   });
 
@@ -25,7 +24,7 @@ describe('context', () => {
       done();
     }
 
-    v.set((currentValue: string): string => {
+    v((currentValue: string): string => {
       expect(currentValue).to.eql(v());
       setTimeout(finish, 0);
       return value;
@@ -38,7 +37,7 @@ describe('context', () => {
 
     addListener(() => done());
     
-    v.set((currentValue: string): string => {
+    v((currentValue: string): string => {
       expect(currentValue).to.eql(v());
       return value;
     });

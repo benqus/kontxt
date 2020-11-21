@@ -1,4 +1,1 @@
-export interface Context<T> {
-  (): T;
-  set(fn: (v: T) => T): void;
-}
+export type Updater<T> = (v?: T) => T;
