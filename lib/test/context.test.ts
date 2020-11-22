@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import context, { addListener, removeListener } from '../src/index';
+import { createContext, addListener, removeListener } from '../src/index';
 
 describe('context', () => {
   const listeners = [];
@@ -10,14 +10,14 @@ describe('context', () => {
 
   it('creates context with default value', () => {
     const value = 'hakuna matata';
-    const v = context<string>(value);
+    const v = createContext<string>(value);
     expect(v).to.be.a('function');
     expect(v()).to.eql(value);
   });
 
   it('updates context', (done) => {
     const value = 'hakuna matata';
-    const v = context<string>('');
+    const v = createContext<string>('');
 
     const finish = () => {
       expect(v()).to.eql(value);
@@ -33,7 +33,7 @@ describe('context', () => {
 
   it('updates listeners', (done) => {
     const value = 'hakuna matata';
-    const v = context<string>('');
+    const v = createContext<string>('');
 
     addListener(() => done());
     

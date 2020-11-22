@@ -3,12 +3,10 @@
   "version": "0.2.4",
   "description": "",
   "main": "dist/index.js",
-  "types": "dist/types.d.ts",
   "scripts": {
     "parcel:watch": "parcel watch --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --log-level 4",
     "parcel": "parcel build --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --detailed-report 10 --log-level 4",
-    "types": "cp ./lib/src/types.d.ts ./dist/",
-    "build": "npm t && npm run parcel && npm run types",
+    "build": "npm t && npm run parcel",
     "test": "mocha -r ts-node/register ./lib/test/**/*.test.ts"
   },
   "repository": {
