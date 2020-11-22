@@ -1,4 +1,4 @@
-import { Updater } from './types';
+import kontxt, { Updater } from './types';
 
 let tout: NodeJS.Timeout = null;
 const scheduleUpdates = () => tout = tout ?? setTimeout(updateContexts, 0);
@@ -16,7 +16,7 @@ function updateContexts(): void {
   listeners.forEach(fnExecutor);
 }
 
-export default <T = any>(value: T = null) => {
+export default <T = any>(value: T = null): kontxt<T> => {
   let updaters: Array<Updater<T>> = [];
   const valueUpdater = (fn: Updater<T>): T => value = fn(value);
 
