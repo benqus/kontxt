@@ -1,7 +1,7 @@
 {
   "name": "kontxt",
   "version": "0.2.5",
-  "description": "",
+  "description": "Minimal multi-state (context) management tool",
   "main": "dist/index.js",
   "scripts": {
     "parcel:watch": "parcel watch --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --log-level 4",
@@ -13,9 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/benqus/kontxt.git"
   },
-  "keywords": [],
-  "author": "Bence Kormos <kormos.bence@gmail.com>",
-  "license": "MIT",
+  "keywords": ["context", "state", "multi-state", "management"],
+  "author": "Bence Kormos",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/benqus/kontxt/issues"
   },
