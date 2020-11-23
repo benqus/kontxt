@@ -1,4 +1,5 @@
 import { Context, Updater } from './types';
+export * from './types';
 
 let tout: NodeJS.Timeout = null;
 const scheduleUpdates = () => tout = tout ?? setTimeout(updateContexts, 0);

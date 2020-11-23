@@ -3,6 +3,7 @@
 Minimal multi-state (context) management tool.
 
 ## Motivation
+
 ---
 The main idea behind kontxt is to provide some simple state management for [`lit-html`](https://lit-html.polymer-project.org/guide) between renders. All `kontxt` updates are scheduled to the next available execution frame thus preventing unnecessary re-renders.
 
@@ -11,6 +12,7 @@ This way `lit-html` & `kontxt` can provide a React Function Component/Hooks-like
 However, `kontxt` isn't bound to the DOM or `lit-html` so it can be used for anything.
 
 ### Example
+
 ---
 Template (or function component if you will)
 
@@ -48,6 +50,7 @@ updateDOM();
 ```
 
 ### Creating a context
+
 ---
 Value of a context can be of any data type.
 
@@ -56,6 +59,7 @@ const Hello = createContext('World');
 ```
 
 ### Using a context
+
 ---
 Contexts are simple functions, no dark-magic, just call them when you want to retrieve the latest value.
 
@@ -64,6 +68,7 @@ console.log(Hello());
 ```
 
 ### Subscribing and Unsusbscribing to/from context changes
+
 ---
 Any context update will update the listeners
 
@@ -80,6 +85,7 @@ removeListener(listener);
 ```
 
 ### Updating a context
+
 ---
 Recommended way:
 
@@ -100,5 +106,3 @@ Please note, that in this case the value is wrapped into a function internally a
 ```ts
 Hello('World!'); // not a synchronous update!
 ```
-
-### License
