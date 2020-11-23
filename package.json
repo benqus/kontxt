@@ -1,6 +1,6 @@
 {
   "name": "kontxt",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Minimal multi-state (context) management tool",
   "main": "dist/index.js",
   "scripts": {
@@ -13,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/benqus/kontxt.git"
   },
-  "keywords": ["context", "state", "multi-state", "management"],
+  "keywords": [
+    "context",
+    "state",
+    "multi-state",
+    "management"
+  ],
   "author": "Bence Kormos",
   "license": "BSD-3-Clause",
   "bugs": {
