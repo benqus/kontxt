@@ -1,6 +1,6 @@
 {
   "name": "kontxt",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Minimal multi-state (context) management tool",
   "main": "dist/index.js",
   "scripts": {
