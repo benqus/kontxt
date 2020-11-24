@@ -18,15 +18,14 @@ describe('context', () => {
   it('updates context', (done) => {
     const value = 'hakuna matata';
     const v = createContext<string>('');
-
-    const finish = () => {
+    const l = addListener(() => {
       expect(v()).to.eql(value);
+      removeListener(l);
       done();
-    }
+    })
 
     v((currentValue: string): string => {
       expect(currentValue).to.eql(v());
-      setTimeout(finish, 0);
       return value;
     });
   });

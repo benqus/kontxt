@@ -5,7 +5,7 @@ Minimal multi-state (context) management tool.
 ## Motivation
 
 ---
-The main idea behind kontxt is to provide some simple state management for [`lit-html`](https://lit-html.polymer-project.org/guide) between renders. All `kontxt` updates are scheduled to the next available execution frame thus preventing unnecessary re-renders.
+The main idea behind kontxt is to provide some simple state management for [`lit-html`](https://lit-html.polymer-project.org/guide) between renders. All `kontxt` updates are executed on the same execution frame but listener invokation is scheduled to the next available execution frame thus preventing unnecessary re-renders. You can update as many contexts as many times you like within an execution frame.
 
 This way `lit-html` & `kontxt` can provide a React Function Component/Hooks-like development experience but in a simpler, cleaner way (no context providers/consumers, reducers, etc...).
 
@@ -55,6 +55,7 @@ updateDOM();
 Value of a context can be of any data type.
 
 ```ts
+// create context with default value
 const Hello = createContext('World');
 ```
 
@@ -87,22 +88,29 @@ removeListener(listener);
 ### Updating a context
 
 ---
-Recommended way:
+Simple update:
 
-To update a context you will need to pass in a function that receives the previous value and is expected to return the new value. This is due to the asynchronous nature of the tool - all updates are scheduled to the next execution frame.
+You can update the context by passing the desired value as the argument. The internal value will be updated immediately and listener invokaction will be scheduled to the next available execution frame.
 
 ```ts
-Hello(str => str + '!');
+Hello('World!');
 ```
-
-> `async` / `await` - context updates are treaded as non-async functions. Do not do asynchronous operations from a context updater function - do it before updating.
 
 ---
 
-You can also update the context by passing the desired value as the argument.
-
-Please note, that in this case the value is wrapped into a function internally and scheduled just like any other functional update would be.
+You may also want to use objects as context values and update their property individually - you can do that with updater functions:
 
 ```ts
-Hello('World!'); // not a synchronous update!
+const User = createContext({
+  firstName: 'John',
+  lastName: 'Doe',
+})
+
+// update user details
+User(user => ({
+  ...user,
+  firstName: 'Jane',
+}));
 ```
+
+> `async` / `await` - context updates are treaded as non-async functions. Do not do asynchronous operations from a context updater function - do it before updating.
