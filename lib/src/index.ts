@@ -1,5 +1,5 @@
-import { Context, Updater } from './types';
-export * from './types';
+type Updater<T> = (v?: T) => T;
+type Context<T> = (a?: Updater<T> | T) => T | void;
 
 let tout: NodeJS.Timeout = null;
 const execFn = (fn: Function): void => fn();
