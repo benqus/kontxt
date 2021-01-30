@@ -1,13 +1,11 @@
 {
   "name": "kontxt",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Minimal multi-state (context) management tool",
-  "main": "dist/index.js",
+  "main": "./kontxt.js",
+  "types": "./kontxt.d.ts",
   "scripts": {
-    "parcel:watch": "parcel watch --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --log-level 4",
-    "parcel": "parcel build --no-source-maps ./lib/src/index.ts --out-file ./dist/index.js --no-cache --detailed-report 10 --log-level 4",
-    "start:example": "ts-node ./example/index.ts",
-    "build": "npm t && npm run parcel",
+    "build": "npm t && tsc -p .",
     "test": "mocha -r ts-node/register ./lib/test/**/*.test.ts",
     "prepublish": "npm run build"
   },
@@ -34,7 +32,6 @@
     "chai": "^4.2.0",
     "expect": "^26.6.2",
     "mocha": "^8.2.1",
-    "parcel": "^1.12.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   }
