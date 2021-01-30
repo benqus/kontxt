@@ -8,7 +8,7 @@
     "declaration": true,
     "module": "UMD",
     "moduleResolution": "Node",
-    "outDir": "./dist"
+    "outDir": "."
   },
   "files": [
     "./lib/src/kontxt.ts"

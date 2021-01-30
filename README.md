@@ -29,7 +29,7 @@ export function Counter() {
 
   return html`
     <span>${count}</span>
-    <button @click=${() => Count(c + 1) /* set value */}></button>
+    <button @click=${() => Count.set(Count() + 1) /* set value */}></button>
   `;
 }
 ```
@@ -106,11 +106,15 @@ const User = createContext({
   lastName: 'Doe',
 })
 
-// update user details
-User(user => ({
-  ...user,
+// set user details - replace/set value
+User.set({
   firstName: 'Jane',
-}));
+});
+
+// merge user details - partial update value - only for objects!
+User.merge({
+  firstName: 'Jane',
+});
 ```
 
 > `async` / `await` - context updates are treaded as non-async functions. Do not do asynchronous operations from a context updater function - do it before updating.

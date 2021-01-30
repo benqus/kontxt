@@ -2,10 +2,9 @@
   "name": "kontxt",
   "version": "0.4.0",
   "description": "Minimal multi-state (context) management tool",
-  "main": "./dist/kontxt.js",
-  "types": "./dist/kontxt.d.ts",
+  "main": "./kontxt.js",
+  "types": "./kontxt.d.ts",
   "scripts": {
-    "start:example": "ts-node ./example/index.ts",
     "build": "npm t && tsc -p .",
     "test": "mocha -r ts-node/register ./lib/test/**/*.test.ts",
     "prepublish": "npm run build"
@@ -33,7 +32,6 @@
     "chai": "^4.2.0",
     "expect": "^26.6.2",
     "mocha": "^8.2.1",
-    "parcel": "^1.12.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   }
