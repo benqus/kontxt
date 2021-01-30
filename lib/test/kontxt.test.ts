@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { createContext, addListener, removeListener } from '../src/index';
+import { createContext, addListener, removeListener } from '../src/kontxt';
 
 describe('context', () => {
   const listeners = [];
@@ -15,7 +15,7 @@ describe('context', () => {
     expect(v()).to.eql(value);
   });
 
-  it('updates context', (done) => {
+  it('sets value', (done) => {
     const value = 'hakuna matata';
     const v = createContext<string>('');
     const l = addListener(() => {
@@ -24,22 +24,19 @@ describe('context', () => {
       done();
     })
 
-    v((currentValue: string): string => {
-      expect(currentValue).to.eql(v());
-      return value;
-    });
+    v.set(value);
   });
 
-  it('updates listeners', (done) => {
+  it('merge partial', (done) => {
     const value = 'hakuna matata';
-    const v = createContext<string>('');
+    const v = createContext<object>({});
 
-    addListener(() => done());
-    
-    v((currentValue: string): string => {
-      expect(currentValue).to.eql(v());
-      return value;
+    addListener(() => {
+      expect(v()).to.eql({ value });
+      done();
     });
+    
+    v.merge({ value });
   });
 
 });

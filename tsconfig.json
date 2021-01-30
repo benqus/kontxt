@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "target": "ES5",
     "lib": ["ESNext"],
     "downlevelIteration": true,
@@ -7,6 +8,10 @@
     "declaration": true,
     "module": "UMD",
     "moduleResolution": "Node",
+    "outDir": "./dist"
   },
+  "files": [
+    "./lib/src/kontxt.ts"
+  ],
   "exclude": ["node_modules"]
 }
